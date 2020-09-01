@@ -1,0 +1,17 @@
+.br-table.is-datatable .br-input input{
+    height: 30px !important;
+    min-height: 30px;
+    width: 80%;
+}
+
+/* .br-table.is-datatable .responsive {
+    margin-top: -23px;
+} */
+
+.br-table.is-datatable .syncscroll{
+    overflow: hidden;
+}
+
+.br-table.is-datatable table thead th {
+    top: 0;
+  }

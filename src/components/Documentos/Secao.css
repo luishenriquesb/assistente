@@ -1,0 +1,44 @@
+.select-posicao.br-select {
+  width: 60px;
+}
+
+
+.select-posicao.br-select  .select-selected{
+  padding-left: 10px;
+}
+
+.select-posicao.br-select .select-selected {
+  border-radius: 0;
+  border-color: transparent;
+}
+
+.select-posicao.br-select .select-selected [class*='fa-'] {
+  margin-left: 0px;
+  color: var(--color-secondary-07);
+}
+
+.select-posicao.br-select  .select-selected:focus {
+  box-shadow: none;
+}
+
+.select-posicao.br-select .select-selected:hover {
+  border-bottom-color: var(--color-secondary-07);
+}
+
+.select-posicao.br-select  .select-items {
+  /* bottom: 100%; */
+  min-width: 50px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.br-button.botao-add-secao {
+ margin-left:50%;
+ position: relative;
+ box-shadow: 0 3px 6px rgba(var(--rgb-secondary-09), 0.16);
+ margin-bottom: 0px;
+}
+
+.ck-editor__editable {
+  min-height: 400px !important;
+}

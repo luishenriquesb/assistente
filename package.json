@@ -1,0 +1,52 @@
+{
+  "name": "dsgov-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^22.0.0",
+    "@ckeditor/ckeditor5-build-classic": "^22.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^22.0.0",
+    "@ckeditor/ckeditor5-essentials": "^22.0.0",
+    "@ckeditor/ckeditor5-heading": "^22.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^22.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
+    "@govbr/dsgov": "^1.4.0",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-html-parser": "^2.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-script-tag": "^1.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll-sync": "^0.8.0",
+    "react-sticky-header": "^0.2.0",
+    "save": "^2.4.0",
+    "uuid-random": "^1.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
