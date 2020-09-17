@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import ReactHtmlParser from 'react-html-parser';
+
+
 import Card from '../../components/@govbr/Card/Card'
 import Button from '../../components/@govbr/Button/Button'
 import Select from '../@govbr/Select/Select';
@@ -37,9 +40,8 @@ const Secao = props => {
         props.reordenarSecao(posicao_antiga, posicao_nova)
     }
 
-    const manipularTextAreaNovaSecao = (e) => {
-        e.preventDefault()
-        setTextAreaNovaSecao(e.target.value)
+    const manipularTextAreaNovaSecao = ( event, editor ) => {
+        setTextAreaNovaSecao(editor.getData())
     }
 
     const manipularSelectNovaSecao = (e) => {
@@ -81,7 +83,7 @@ const Secao = props => {
                         </div>
                     }
                 >
-                    {expandido ? props.conteudo : null}
+                    {expandido ? ReactHtmlParser(props.conteudo) : null}
 
                 </Card>
                 {mostrarAdd ?
@@ -107,10 +109,11 @@ const Secao = props => {
                         }}
                         editor={ ClassicEditor }
                         data=""
-                        onChange={ ( event, editor ) => {
-                            const data = editor.getData();
-                            console.log( { event, editor, data } );
-                        } }
+                        // onChange={ ( event, editor ) => {
+                        //     const data = editor.getData();
+                        //     console.log( { event, editor, data } );
+                        // } }
+                        onChange = { manipularTextAreaNovaSecao }
                         onBlur={ ( event, editor ) => {
                             console.log( 'Blur.', editor );
                         } }

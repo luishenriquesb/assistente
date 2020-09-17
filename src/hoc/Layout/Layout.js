@@ -39,13 +39,9 @@ class Layout extends Component {
                                     exact
                                     onClick={this.fecharDrawer}
                                     to="/">
-                                            <div class="content">Compositor de Documentos</div>
+                                            <div class="content">Processos</div>
                                             <div className="suport"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                                     </NavLink>
-                                        {/* <a class="item" href="">
-                                            <div class="content">Compositor de Documentos</div>
-                                            <div className="suport"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                                        </a> */}
                                     </li>
                                     <li>
                                     <NavLink
@@ -53,13 +49,9 @@ class Layout extends Component {
                                     className="item"
                                     exact
                                     to="/banco-documentos">
-                                            <div class="content">Banco de Documentos</div>
+                                            <div class="content">Documentos</div>
                                             <div className="suport"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                                     </NavLink>
-                                        {/* <a class="item" href="">
-                                            <div class="content">Banco de Documentos</div>
-                                            <div className="suport"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                                        </a> */}
                                     </li>
                                 </ul>
                             </div>
@@ -68,11 +60,11 @@ class Layout extends Component {
                 </div>
                 <Header
                     botaoMenu={
-                        <Button circle mini>
+                        <Button circle>
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </Button>
                     }
-                titulo="SERPRO Docs"/>
+                titulo="SERPRO ComDoc"/>
                 
                 
                 <div className="container-lg">

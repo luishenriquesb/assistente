@@ -12,9 +12,11 @@ class Header extends Component {
             <div className="br-header" sticky="">
             <div className="container-lg">
                 <div className="flex-container">
-                    <div className="menu">
-                        {this.props.botaoMenu}
-                        <div className="title">{this.props.titulo}</div>
+                    <div className="menu row">
+                        <div className="">{this.props.botaoMenu}</div>
+                        <div className="title" style={{width:'calc(100% - 48px)'}}>
+                            {this.props.titulo}
+                        </div>
                     </div>
                 </div>
             </div>

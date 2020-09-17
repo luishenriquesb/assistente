@@ -4,19 +4,21 @@ import Documento from '../../components/Documentos/Documento'
 class Editor extends Component {
     state = {
         secoes:{
-            1: {titulo:'Introdução', conteudo: <div>EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A) FEDERAL DA VARA</div>},
-            2: {titulo:'Qualificação do assistido', conteudo: <div>
-                A DEFENSORIA PÚBLICA DA UNIÃO, órgão essencial à função
-jurisdicional do Estado (art. 134 da CF), com atribuições e prerrogativas insculpidas na Lei
-Complementar nº 80/94, por intermédio da Defensora Pública Federal signatária, assistindo
-juridicamente {'{assistido.nome}'}, {'{assistido.nacionalidade}'}, {'{assistido.ocupacao}'},
-{'{assistido.estado-civil}'}, nascido aos {'{assistido.nascimento}'}, portador do RG n.
-{'{assistido.rg}'}, inscrito no CPF sob o n. {'{assistido.cpf}'}, residente e domiciliado na
-{'{assistido.endereco}'}, telefone: {'{assistido.telefone}'}, vem à presença de Vossa Excelência,
+            1: { titulo: 'Introdução', conteudo: '<div>EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A) FEDERAL DA VARA</div>' },
+            2: {
+                titulo: 'Qualificação do assistido', conteudo: `<div>
+                    A DEFENSORIA PÚBLICA DA UNIÃO, órgão essencial à função
+                    jurisdicional do Estado (art. 134 da CF), com atribuições e prerrogativas insculpidas na Lei
+                    Complementar nº 80/94, por intermédio da Defensora Pública Federal signatária, assistindo
+juridicamente <b>{assistido.nome}</b>, <b>{assistido.nacionalidade}</b>, <b>{assistido.ocupacao}</b>,
+<b>{assistido.estado-civil}</b>, nascido aos <b>{assistido.nascimento}</b>, portador do RG n.
+<b>{assistido.rg}</b>, inscrito no CPF sob o n. <b>{assistido.cpf}</b>, residente e domiciliado na
+<b>{assistido.endereco}</b>, telefone: <b>{assistido.telefone}</b>, vem à presença de Vossa Excelência,
 propor a presente
-            </div>},
-            3:{titulo:'Pretensão', conteudo:''},
-            4:{titulo:'Fatos', conteudo:''},
+            </div>`
+            },
+            3: { titulo: 'Pretensão', conteudo: '' },
+            4: { titulo: 'Fatos', conteudo: '' },
         }
     }
 
