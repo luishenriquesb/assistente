@@ -32,8 +32,12 @@ class Select extends Component {
         const properties = normalizarPropsDsGov(this.props)
         const classes = "br-select "+this.componentId +" "+properties.classes
         return (
-            <div className={classes} {...properties} onClick={()=>this.props.click(this.getValue())} >
-                {properties.label ? <label for={properties.id}>{properties.label}</label>:null}
+            <div className={classes} 
+                {...properties} 
+                onClick={()=>this.props.click(this.getValue())} 
+                style={{zIndex:99}}
+                >
+                {properties.label ? <label htmlFor={properties.id}>{properties.label}</label>:null}
                 {this.props.titulo}
                 <select defaultValue={this.props.value}>
                     {this.props.children}
