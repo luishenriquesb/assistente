@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
+import qs from 'qs'
 
 import Documento from '../../components/Documentos/Documento'
 import Tabs from '../../components/@govbr/Tabs/Tabs'
@@ -94,6 +95,12 @@ propor a presente
 
     }
 
+    componentDidMount(){
+        const query_string = qs.parse(this.props.location.search, { ignoreQueryPrefix: true })
+        if (query_string.compordocumento) {
+            this.setState({guiaAtiva:1})
+        }
+    }
     render() {
         const documento = <Documento secoes={this.state.secoes}
             removerSecao={(e) => this.removerSecao(e)}
@@ -161,7 +168,6 @@ propor a presente
                                     to="/banco-documentos">
                                            Usar documento pronto como modelo
                                     </NavLink>
-                                {/* <a href='#' style={{ textDecoration: 'underline' }}>Usar documento pronto como modelo</a> */}
                             </span>
                             <Tooltip place='right'>Você pode buscar por um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
                         </div>
@@ -172,7 +178,6 @@ propor a presente
                                     to="#">
                                           Enviar documento para usuar como modelo
                                     </NavLink>
-                                {/* <a href='#' style={{ textDecoration: 'underline' }}>Usar documento pronto como modelo</a> */}
                             </span>
                             <Tooltip place='right'>Você pode enviar um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
                         </div>

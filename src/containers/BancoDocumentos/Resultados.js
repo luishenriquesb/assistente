@@ -7,9 +7,11 @@ import Checkbox from '../../components/@govbr/Checkbox/Checkbox'
 import Pagination from '../../components/@govbr/Datable/Paginator'
 
 import classes from './Resultado.module.css'
+import Button from '../../components/@govbr/Button/Button'
 
 const resultados = (props) => {
 
+    
     let i = 0
     const linhas = props.resultados.map(
         item => {
@@ -30,6 +32,16 @@ const resultados = (props) => {
                     </td>
                     <td>
                         <div style={{ whiteSpace: 'normal' }} >
+                            { item['unidade'] }
+                        </div>
+                    </td>
+                    <td>
+                        <div style={{ whiteSpace: 'normal' }} >
+                            { item['cidade'] }
+                        </div>
+                    </td>
+                    <td>
+                        <div style={{ whiteSpace: 'normal' }} >
                            <a href="#"> <u>{ item['nome'] }</u> </a>
                         </div>
                     </td>
@@ -37,9 +49,17 @@ const resultados = (props) => {
                 </tr>)
         }
     )
+    
+
 
     return (
-        <Datatable id="resultados" titulo={props.titulo} classes="is-datatable is-checkbox">
+        <Datatable id="resultados"
+             titulo={props.titulo} 
+             classes="is-datatable is-checkbox"
+             listaBotaoAcao={[
+                 <Button classes="is-primary"
+                 click={props.comporNovoDocumento}>Usar para compor novo documento</Button>
+             ]}>
             <Table>
                 <thead>
                     <tr>
@@ -49,6 +69,8 @@ const resultados = (props) => {
                         </th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Processo</th>
+                        <th scope="col">Unidade</th>
+                        <th scope="col">Cidade</th>
                         <th scope="col">Arquivo</th>
                     </tr>
                 </thead>

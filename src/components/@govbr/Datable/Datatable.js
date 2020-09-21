@@ -20,7 +20,16 @@ class Datatable extends Component {
 
         const properties = normalizarPropsDsGov(this.props)
         const classes = "br-table "+this.componentId +" "+properties.classes
-
+        
+        let listaBotaoAcao = null
+        if (this.props.listaBotaoAcao) {
+            listaBotaoAcao = this.props.listaBotaoAcao.map(item=>{return(
+              <div className="action-button">
+                {item}
+              </div>
+            )})
+        }
+       
         return (
           <div className={classes} {...properties}>
             <div className='header'>
@@ -35,21 +44,7 @@ class Datatable extends Component {
                     <span className="count">0</span>
                     <span className="text">item selecionado</span>
                 </div>
-                <div className="action-button">
-                <button className="br-button delete-trigger is-primary" type="button">
-                    <span>Excluir</span><i className="fas fa-trash-alt"></i>
-                </button>
-            </div>
-            <div className="action-button">
-                <button className="br-button download-trigger is-primary" type="button">
-                    <span>Download</span><i className="fas fa-download"></i>
-                </button>
-            </div>
-            <div className="action-button mobile">
-                <button className="br-button is-primary" type="button">
-                    <i className="fas fa-ellipsis-v"></i>
-                </button>
-            </div>
+                {listaBotaoAcao}
               </div>
             </div>
             {this.props.children}

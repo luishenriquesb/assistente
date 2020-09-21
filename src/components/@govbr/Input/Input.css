@@ -1,0 +1,26 @@
+.br-input .search-items {
+    background: var(--color-secondary-01);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.22);
+    box-shadow: 0 3px 6px rgba(0,0,0,.22);
+    left: var(--spacing-scale-half);
+    margin-top: 1px;
+    position: absolute;
+    right: var(--spacing-scale-half);
+    z-index: 1;
+    cursor: pointer
+}
+
+.br-input .search-items div:hover {
+    background: var(--color-primary-pastel-02);
+}
+
+.br-input .search-items div {
+    background: var(--color-secondary-01);
+    border: 0;
+    display: block;
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-scale-half) var(--spacing-scale-2x);
+    text-align: left;
+    width: 100%;
+}
+
