@@ -34,11 +34,11 @@ propor a presente
         atualizarTabs: false,
         mostrarRecomendacoes: false,
         modelos: [
-            { recomendacao: '1°', descricao: 'Descrição do modelo', autor: 'Administrador', usos: '10x' },
-            { recomendacao: '2°', descricao: 'Descrição do modelo', autor: 'Dr. Rogerio Ceni', usos: '12x' },
-            { recomendacao: '3°', descricao: 'Descrição do modelo', autor: 'Dr. Ronaldo Nazário', usos: '5x' },
-            { recomendacao: '4°', descricao: 'Descrição do modelo', autor: 'Administrador', usos: '2x' },
-            { recomendacao: '5°', descricao: 'Descrição do modelo', autor: 'Administrador', usos: '1x' },
+            { recomendacao: '1°', descricao: 'Modelo genérico de petição inicial', autor: 'Administrador', usos: '10x' },
+            { recomendacao: '2°', descricao: '', autor: 'Dr. Rogerio Ceni', usos: '12x' },
+            { recomendacao: '3°', descricao: 'Petição inicial para casos complicados', autor: 'Dr. Ronaldo Nazário', usos: '5x' },
+            { recomendacao: '4°', descricao: 'Modelo de petição inicial para restabelecimento de fornecimento de medicamentos', autor: 'Administrador', usos: '2x' },
+            { recomendacao: '5°', descricao: 'Modelo de petição inicial para solicitação de internação médica', autor: 'Administrador', usos: '1x' },
         ]
     }
 
@@ -140,46 +140,57 @@ propor a presente
 
         const aba1 = <div className='mt-4'>
             <div className='row' >
-                <div className='col' style={{ zIndex: 99 }}>
-                    Qual é o tipo de documento que deseja criar?
-                                <Select click={() => {this.setState({mostrarRecomendacoes:true})}} >
+                <div className='col-2 mt-2' style={{ zIndex: 99 }}>
+                    <div className='float-left'>Tipo de documento:</div>
+                    <Tooltip place='bottom'>A sugestão do tipo de documento foi realizada por IA, mas você pode alterá-lo</Tooltip>
+                </div>
+                <div className='col ml-n5 ' style={{ zIndex: 99 }}>
+                <Select click={() => (null)} >
                         <option value='1'>Petição Inicial</option>
                         <option value='2'>Agravo</option>
                         <option value='3'>Alegações Finais</option>
                     </Select>
                 </div>
-                <div className='col mt-3' style={{ zIndex: 99 }}>
+                <div className='col ' style={{ zIndex: 99 }}>
+                    <Button primary click={() => {this.setState({mostrarRecomendacoes:true})}}>
+                        Buscar modelos</Button>
                 </div>
             </div>
             {
                 !this.state.mostrarRecomendacoes ? null : 
                 <div>
                     <div style={{ position: 'relative', zIndex: 98 }}>
-                        <h5>Recomendações:</h5>
+                        <h5>Modelos recomendados:</h5>
                     </div>
                     <div style={{ marginTop: -60 }} >{modelo}</div>
-                    <div style={{ position: 'relative', zIndex: 98 }}>
-                        <h6>Recomendações Alternativas:</h6>
-
-                        <div>
-                            <span  style={{ textDecoration: 'underline' }}>
+                    
+                    <div style={{ position: 'relative', zIndex: 98, marginTop:50 }}>
+                        <h6>Compor a partir de documento pronto:</h6>
+                       
+                        
+                        <div className="float-left mr-2">
+                           
+                         
                                  <NavLink
+                                    className="inline-block"
+                                    style={{display:'inline-block'}}
                                     exact
                                     to="/banco-documentos">
-                                           Usar documento pronto como modelo
+                                            <Button primary >Buscar no banco de documentos</Button>
                                     </NavLink>
-                            </span>
-                            <Tooltip place='right'>Você pode buscar por um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
+                            
+                            <Tooltip place='bottom'>Você pode buscar por um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
                         </div>
                         <div>
-                            <span  style={{ textDecoration: 'underline' }}>
+                            
                                  <NavLink
                                     exact
+                                    style={{display:'inline-block'}}
                                     to="#">
-                                          Enviar documento para usuar como modelo
+                                          <Button primary >Buscar no meu computador</Button>
                                     </NavLink>
-                            </span>
-                            <Tooltip place='right'>Você pode enviar um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
+                            
+                            <Tooltip place='bottom'>Você pode enviar um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
                         </div>
                     </div>
                 </div>
@@ -190,7 +201,7 @@ propor a presente
             <div>
                 <Tabs guiaAtiva={this.state.guiaAtiva} atualizar={this.state.atualizarTabs}
                     tabs={[
-                        { titulo: "Escolher modelo", conteudo: aba1 },
+                        { titulo: "Escolher Modelo", conteudo: aba1 },
                         { titulo: "Compor Documento", conteudo: documento }
                     ]}
                 />

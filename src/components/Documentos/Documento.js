@@ -19,7 +19,8 @@ const Documento = (props) => {
     return (
         <div>
             {secoes}
-            <Button primary classes="mt-2 mb-2">Salvar</Button>
+            <Button primary classes="mt-2 mb-2">Salvar documento</Button><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            {/* <Button primary classes="mt-2 mb-2">Salvar documento como modelo</Button> */}
         </div>
     )
 }
