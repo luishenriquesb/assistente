@@ -24,7 +24,7 @@ class Tabs extends Component {
 
         const listaTabs = this.props.tabs
         for (let index = 0; index < listaTabs.length; index++) {
-            const ativo = listaTabs[index].ativo ? 'is-active': null
+            const ativo = this.props.guiaAtiva==index ? 'is-active': null
             listNav.push(
                 <li className={"tab-item "+ativo}>
                     <button type="button" data-panel={"panel-" + index}>

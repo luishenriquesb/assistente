@@ -49,7 +49,7 @@ export default class Detalhe extends Component {
                 </Modal> : null}
                 <Informacoes />
 
-                <Button classes='mt-5 float-right' primary 
+                <Button classes='mt-5' primary 
                     // click={this.criarNovoDocumento}
                     click={this.prosseguir}
                     >

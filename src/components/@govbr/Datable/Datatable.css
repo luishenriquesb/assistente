@@ -15,3 +15,8 @@
 .br-table.is-datatable table thead th {
     top: 0;
   }
+
+.br-table .action-button .br-button:hover {
+    color: rgb(144, 183, 231);
+    text-decoration: underline;
+}

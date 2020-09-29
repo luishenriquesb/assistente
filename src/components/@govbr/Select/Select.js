@@ -35,7 +35,6 @@ class Select extends Component {
             <div className={classes} 
                 {...properties} 
                 onClick={()=>this.props.click(this.getValue())} 
-                style={{zIndex:99}}
                 >
                 {properties.label ? <label htmlFor={properties.id}>{properties.label}</label>:null}
                 {this.props.titulo}
@@ -47,6 +46,5 @@ class Select extends Component {
     }
 }
 
-// onChange={this.props.change}
 
 export default Select
