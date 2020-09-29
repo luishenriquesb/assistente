@@ -3,9 +3,14 @@ import BRTemplateBase from '@govbr/dsgov/dist/js/components/template-base'
 import Header from '../../components/@govbr/Header/Header'
 import Scrim from '../../components/@govbr/Scrim/Scrim';
 import Button from '../../components/@govbr/Button/Button'
+import BreadCrumb from '../../components/@govbr/Breadcrumb/Breadcrumb'
 import index from 'uuid-random';
 import {NavLink} from 'react-router-dom';
-
+import {Route, Switch, Redirect, withRouter,} from 'react-router-dom'
+import Detalhe from '../../containers/Detalhe/Detalhe';
+import Editor from '../../containers/Editor/Editor'
+import BancoDocumentos from '../../containers/BancoDocumentos/BancoDocumentos'
+import ComposicaoDocumentos from '../../containers/ComposicaoDocumentos/ComposicaoDocumentos';
 
 class Layout extends Component {
 
@@ -18,6 +23,7 @@ class Layout extends Component {
         window.document.querySelector('.scrim-menu').removeAttribute('show')
     }
 
+    
     render() {
         
         return (         
@@ -71,11 +77,26 @@ class Layout extends Component {
                     <div className='row'>
 
                         <div className="col container-main">
-                            <ul className="br-breadcrumb">
+                            <BreadCrumb
+                                home={<a href="#">
+                                    <span class="sr-only">Página inicial</span>
+                                    <i class="icon fas fa-home"></i>
+                                    </a>}
                                 
-                            </ul>
+                            >
+                             <NavLink to='/'> Teste
+                            </NavLink>    
+                            <span>Teste</span> 
+                            </BreadCrumb>
+                            
                             <div className='main-content'>
-                                {this.props.children}
+                                <Switch>
+                                    <Route path='/detalhe' component={Detalhe} />
+                                    <Route path='/editor' component={Editor} />
+                                    <Route path='/banco-documentos' component={BancoDocumentos} />
+                                    <Route path='/' exact component={ComposicaoDocumentos} />
+                                    <Redirect to="/" />
+                                </Switch>
                             </div>
                         </div>
                     </div>
