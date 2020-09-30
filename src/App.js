@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Layout from './hoc/Layout/Layout'
-
+import {withRouter} from 'react-router-dom'
 import { render } from '@testing-library/react';
 
 class App extends Component{
@@ -15,4 +15,4 @@ class App extends Component{
   
 }
 
-export default App;
+export default withRouter(App);

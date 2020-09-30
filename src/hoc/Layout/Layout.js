@@ -13,6 +13,9 @@ import BancoDocumentos from '../../containers/BancoDocumentos/BancoDocumentos'
 import ComposicaoDocumentos from '../../containers/ComposicaoDocumentos/ComposicaoDocumentos';
 
 class Layout extends Component {
+    state = {
+        crumbs : null
+    }
 
     componentDidMount(){
         const brTemplateBase = window.document.querySelector('.template-base')
@@ -23,7 +26,10 @@ class Layout extends Component {
         window.document.querySelector('.scrim-menu').removeAttribute('show')
     }
 
-    
+    carregarBreadCrumb = (crumbs) => {
+       this.setState({crumbs:crumbs})
+    }
+
     render() {
         
         return (         
@@ -78,23 +84,33 @@ class Layout extends Component {
 
                         <div className="col container-main">
                             <BreadCrumb
-                                home={<a href="#">
+                                home={<NavLink to="/">
                                     <span class="sr-only">Página inicial</span>
                                     <i class="icon fas fa-home"></i>
-                                    </a>}
+                                    </NavLink>}
                                 
                             >
-                             <NavLink to='/'> Teste
-                            </NavLink>    
-                            <span>Teste</span> 
+                             { this.state.crumbs }
                             </BreadCrumb>
-                            
+                            <div className="br-divider mb-5"></div>
                             <div className='main-content'>
                                 <Switch>
-                                    <Route path='/detalhe' component={Detalhe} />
-                                    <Route path='/editor' component={Editor} />
-                                    <Route path='/banco-documentos' component={BancoDocumentos} />
-                                    <Route path='/' exact component={ComposicaoDocumentos} />
+                                    <Route path='/detalhe'
+                                        render={(props) =><Detalhe breadcrumb={this.carregarBreadCrumb} {...props}/>}
+                                    />
+
+                                    <Route path='/editor'
+                                        render={(props) =><Editor breadcrumb={this.carregarBreadCrumb} {...props}/>}
+                                    />
+
+                                    <Route path='/banco-documentos'
+                                        render={(props) => <BancoDocumentos breadcrumb={this.carregarBreadCrumb} {...props} />}
+                                    />
+
+                                    <Route path='/' exact
+                                        render={(props) => <ComposicaoDocumentos breadcrumb={this.carregarBreadCrumb} {...props}/>}
+                                    />
+
                                     <Redirect to="/" />
                                 </Switch>
                             </div>
@@ -102,7 +118,7 @@ class Layout extends Component {
                     </div>
                 </div>
 
-                <div className="br-footer">
+                <div className="br-footer mt-5">
                     <div className="container-lg">
                         {/* <div className='logo text-center'>@Luis</div> */}
                     </div>
@@ -113,4 +129,4 @@ class Layout extends Component {
     }
 }
 
-export default Layout
+export default withRouter(Layout)

@@ -9,6 +9,9 @@ import Table from '../../components/@govbr/Datable/Table'
 import Select from '../../components/@govbr/Select/Select'
 import Button from '../../components/@govbr/Button/Button'
 import Tooltip from '../../components/@govbr/Tooltip/Tooltip'
+import Upload from '../../components/@govbr/Upload/Upload'
+import Modal from '../../components/@govbr/Modal/Modal'
+
 import { mapToStyles } from '@popperjs/core/lib/modifiers/computeStyles'
 
 class Editor extends Component {
@@ -39,7 +42,8 @@ propor a presente
             { recomendacao: '3°', descricao: 'Petição inicial para casos complicados', autor: 'Dr. Ronaldo Nazário', usos: '5x' },
             { recomendacao: '4°', descricao: 'Modelo de petição inicial para restabelecimento de fornecimento de medicamentos', autor: 'Administrador', usos: '2x' },
             { recomendacao: '5°', descricao: 'Modelo de petição inicial para solicitação de internação médica', autor: 'Administrador', usos: '1x' },
-        ]
+        ],
+        showModal: false
     }
 
     removerSecao = (id) => {
@@ -84,6 +88,7 @@ propor a presente
     }
 
     comporDocumento = () => {
+        this.setState({showModal:false})
         console.log(this.state.guiaAtiva)
         if (this.state.guiaAtiva === 1) {
             this.setState({ guiaAtiva: 0 })
@@ -99,8 +104,30 @@ propor a presente
         const query_string = qs.parse(this.props.location.search, { ignoreQueryPrefix: true })
         if (query_string.compordocumento) {
             this.setState({guiaAtiva:1})
+            this.props.breadcrumb(
+                [<NavLink to='banco-documentos'>Banco de Documento</NavLink>,
+                 <span>Compor Documento</span>
+                ]
+            )
+        }else{
+            this.props.breadcrumb(
+                [<NavLink to='/'>Processos</NavLink>,
+                 <NavLink to='detalhe'>Detalhe Processo</NavLink>,
+                 <span>Compor Documento</span>
+                ]
+            )
         }
+
     }
+
+    fecharModal = (e) =>{
+        this.setState({showModal:false})
+    }
+
+    showModal=()=>{
+        this.setState({showModal:true})
+    }
+
     render() {
         const documento = <Documento secoes={this.state.secoes}
             removerSecao={(e) => this.removerSecao(e)}
@@ -139,6 +166,25 @@ propor a presente
         </Datatable>
 
         const aba1 = <div className='mt-4'>
+            
+
+                {this.state.showModal ? <Modal
+                    fecharModal={this.fecharModal}
+                    footer={
+                        <div className="ml-2">
+                            <Button primary click={this.comporDocumento}>Prosseguir</Button> <span> </span>
+                            <Button primary click={this.fecharModal}>Cancelar</Button>
+                        </div>
+                    }
+                >
+                     <Upload label="teste" uploadFunction={null}>
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    Enviar arquivo
+                    </Upload>
+                </Modal> : null}
+
+           
+
             <div className='row' >
                 <div className='col-2 mt-2' style={{ zIndex: 99 }}>
                     <div className='float-left'>Tipo de documento:</div>
@@ -175,8 +221,9 @@ propor a presente
                                     className="inline-block"
                                     style={{display:'inline-block'}}
                                     exact
-                                    to="/banco-documentos">
-                                            <Button primary >Buscar no banco de documentos</Button>
+                                    to="/banco-documentos"
+                                    >
+                                    <Button primary >Buscar no banco de documentos</Button>
                                     </NavLink>
                             
                             <Tooltip place='bottom'>Você pode buscar por um documento pronto e usá-lo como modelo para compor um novo</Tooltip>
@@ -186,8 +233,9 @@ propor a presente
                                  <NavLink
                                     exact
                                     style={{display:'inline-block'}}
-                                    to="#">
-                                          <Button primary >Buscar no meu computador</Button>
+                                    to="#"
+                                    onClick={this.showModal}>
+                                    <Button primary >Buscar no meu computador</Button>
                                     </NavLink>
                             
                             <Tooltip place='bottom'>Você pode enviar um documento pronto e usá-lo como modelo para compor um novo</Tooltip>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Datatable from '../@govbr/Datable/Datatable'
 import Table from '../@govbr/Datable/Table'
-
+import Pagination from '../@govbr/Datable/Paginator'
 const Documentos = (props) => {
     let linhas = [
         {tipo: 'Petição Inicial', autor: 'Ciro Gomes', data: '01/01/2030'},
@@ -24,8 +24,11 @@ const Documentos = (props) => {
             </thead>
             <tbody>
                 {linhas}
+
             </tbody>
+            
         </Table>
+        <Pagination/>
     </Datatable>
     )
 }

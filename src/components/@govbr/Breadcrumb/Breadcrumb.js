@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BRBreadcrumb from '@govbr/dsgov/dist/js/components/breadcrumb'
 import uuid from 'uuid-random';
 import { normalizarPropsDsGov } from '../utils'
-
+import './Breadcrumb.css'
 class Breadcrumb extends Component {
 
     constructor(props) {
@@ -34,21 +34,12 @@ class Breadcrumb extends Component {
             
         });
         return (
-            <div className={classes}>
+            <div className={classes} style={{fontSize:30}}>
                 <ul className="crumb-list">
                     <li className="crumb home">
                         {this.props.home}
                     </li>
                     {crumbs}
-                    {/* <li class="crumb">
-                        <i class="icon fas fa-chevron-right"></i>
-                        <a href="#">Página Ancestral 01</a>
-                    </li>
-        
-                    <li class="crumb" active="" >
-                        <i class="icon fas fa-chevron-right"></i>
-                        <span>Página Atual</span>
-                    </li> */}
                 </ul>
             </div>
         )

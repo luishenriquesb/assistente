@@ -45,6 +45,12 @@ class ComposicaoDocumentos extends Component {
     this.setState({realizouBusca:true})
   }
 
+  componentDidMount = () =>{
+    this.props.breadcrumb(
+        [<span>Processos</span>]
+    )
+  }
+
   render() {
 
     return (

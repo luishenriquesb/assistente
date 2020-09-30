@@ -24,9 +24,15 @@ export class BancoDocumentos extends Component {
     }
 
     comporNovoDocumento = () =>{
+        console.log(this.props)
         this.props.history.push('/editor?compordocumento=1')
     }
 
+    componentDidMount = () =>{
+        this.props.breadcrumb(
+            [<span>Banco de Documento</span>]
+        )
+    }
 
     buscar = () => {
         this.setState({terminouBusca:true})
