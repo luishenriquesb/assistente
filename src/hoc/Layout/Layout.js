@@ -76,7 +76,7 @@ class Layout extends Component {
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </Button>
                     }
-                titulo="SERPRO ComDoc"/>
+                titulo="Assistente de Composição de Documentos"/>
                 
                 
                 <div className="container-lg">
@@ -120,7 +120,7 @@ class Layout extends Component {
 
                 <div className="br-footer mt-5">
                     <div className="container-lg">
-                        {/* <div className='logo text-center'>@Luis</div> */}
+                       
                     </div>
                 </div>
             </div>
