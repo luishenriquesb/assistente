@@ -46,7 +46,7 @@ export class BancoDocumentos extends Component {
                     </div>
                     <div className="col">
                         <Select label='Tipo:' click={()=>null}>
-                            <option>Selecione</option>
+                            <option>Selecione </option>
                             <option>Agravo</option>
                         </Select>
                     </div>
